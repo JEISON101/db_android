@@ -15,12 +15,13 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        db.execSQL(Constants.CREATE_CITIES);
         db.execSQL(Constants.CREATE_USERS);
+        db.execSQL(Constants.CREATE_DATES);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(Constants.CREATE_CITIES);
-        db.execSQL(Constants.CREATE_DATES);
+        onCreate(db);
     }
 }
